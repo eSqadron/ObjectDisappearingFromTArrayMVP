@@ -18,6 +18,7 @@ public:
 
 	int NameNumber = 0;
 
+	UPROPERTY() // Solution 5 - combination of 1 and 2 (My Widget as UPROPERTY)? - seems to work
 	class UMyWidget* MyWidget;
 
 	void ShowWidget();

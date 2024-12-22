@@ -53,6 +53,7 @@ void AMvpPlayerController::ButtonCallback()
 	else
 	{
 		CurrentObject->MyWidget->RemoveFromViewport();
+		CurrentObject->RemoveFromRoot(); // Solution 5 - combination of 1 and 2? - seems to work
 		CurrentObject = nullptr;
 	}
 }

@@ -27,7 +27,8 @@ UMyObject* AMvpGameModeBase::CreateNewObject(int number)
 	_newObject->NameNumber = number;
 
 	// Solution 2 - Add object and widget to root - This particular line was partial success
-	// _newObject->AddToRoot();
+	_newObject->AddToRoot();
+	// Solution 5 - combination of 1 and 2 (MyObject added to root, My Widget as UPROPERTY)? - seems to work
 
 	// _newObject->SetFlags(RF_MarkAsRootSet); // Solution 4 - Set flag to RF_MarkAsRootSet
 
