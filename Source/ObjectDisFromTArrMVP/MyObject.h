@@ -16,6 +16,10 @@ class OBJECTDISFROMTARRMVP_API UMyObject : public UObject
 
 public:
 
+	int NameNumber = 0;
+
 	class UMyWidget* MyWidget;
+
+	void ShowWidget();
 	
 };

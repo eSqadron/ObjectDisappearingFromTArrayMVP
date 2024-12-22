@@ -22,5 +22,5 @@ public:
 	class UMyObject* GetNextObject();
 
 private:
-	class UMyObject* CreateNewObject();
+	class UMyObject* CreateNewObject(int number);
 };

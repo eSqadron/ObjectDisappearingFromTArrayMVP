@@ -9,7 +9,7 @@ AMvpGameModeBase::AMvpGameModeBase()
 {
 	for (int i = 0; i < 10; i++)
 	{
-		MyObjects.Add(CreateNewObject());
+		MyObjects.Add(CreateNewObject(i));
 	}
 }
 
@@ -18,9 +18,11 @@ UMyObject* AMvpGameModeBase::GetNextObject()
 	return MyObjects.Pop();
 }
 
-UMyObject* AMvpGameModeBase::CreateNewObject()
+UMyObject* AMvpGameModeBase::CreateNewObject(int number)
 {
 	auto _newObject = NewObject<UMyObject>();
+
+	_newObject->NameNumber = number;
 
 	return _newObject;
 }

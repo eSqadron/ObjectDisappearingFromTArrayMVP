@@ -7,7 +7,6 @@
 #include <Kismet/GameplayStatics.h>
 #include "MvpGameModeBase.h"
 #include "Components/Button.h"
-#include "Components/TextBlock.h"
 #include "MyWidget.h"
 #include "MyObject.h"
 
@@ -37,13 +36,17 @@ void AMvpPlayerController::BeginPlay()
 
 void AMvpPlayerController::ButtonCallback()
 {
-	static int counter = 0;
-
 	if (CurrentObject == nullptr)
 	{
 		CurrentObject = MvpGameMode->GetNextObject();
-		CurrentObject->MyWidget->ObjectNameTextBlock->SetText(FText::FromString(FString::Printf(TEXT("%03d"), counter++)));
-		CurrentObject->MyWidget->AddToViewport();
+
+		if(CurrentObject == nullptr)
+		{
+			UE_LOG(LogTemp, Error, TEXT("[ButtonCallback] Couldn't get new object!"));
+			return;
+		}
+
+		CurrentObject->ShowWidget();
 	}
 	else
 	{
