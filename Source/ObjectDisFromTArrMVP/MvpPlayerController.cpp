@@ -27,9 +27,11 @@ void AMvpPlayerController::BeginPlay()
 
 	MvpHUD->NextObjectButtonWidget->AddToViewport();
 
+	// Here solution 1 was breaking, MyObjects array was nulled after leaving the constructor.
 	for (auto obj : MvpGameMode->MyObjects)
 	{
 		obj->MyWidget = CreateWidget<UMyWidget>(this, MvpHUD->MyWidgetClass);
+		//obj->MyWidget->AddToRoot(); // Solution 2 - Add object and widget to root - complete disaster, causes a lot of crashes
 	}
 
 }

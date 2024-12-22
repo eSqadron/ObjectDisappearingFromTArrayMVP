@@ -17,10 +17,17 @@ class OBJECTDISFROMTARRMVP_API AMvpGameModeBase : public AGameModeBase
 public:
 	AMvpGameModeBase();
 
+	//UPROPERTY() // Solution 1 - Setting object array as UPROPERTY. This however caused whole array to be nulled after leaving the constructor.
 	TArray<class UMyObject*> MyObjects;
 
 	class UMyObject* GetNextObject();
 
 private:
 	class UMyObject* CreateNewObject(int number);
+
+	// UPROPERTY() // Solution 3 - all objects separately with UPROPERTY(). There was no observable difference between this base behaviour
+	// class UMyObject* object1 = nullptr;
+	// UPROPERTY()
+	// class UMyObject* object2 = nullptr;
+	// etc. 
 };
